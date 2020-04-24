@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/MartMbithi/Hospital-Management-Information-System/blob/master/assets/images/logo-dark.png"></p>
+<p align="center"><img src="https://github.com/MartMbithi/HMIS/blob/master/backend/admin/assets/images/logo-dark.png"></p>
 <hr>
 <b>Hospital-Management-Information-System</b><br>
 Hospital Management Information System Is More Advanced Hospital Information System  Build On <a href="https://github.com/MartMbithi/OHCMS">Orion HealthCare Hospital Management System</a>
@@ -22,6 +22,7 @@ Admin Module Email: sysadmin@his.org<br>
 Admin Module Password: admin <br>
 <hr>
   <b>Screenshots</b>
-  <p align="center"><img src="https://github.com/MartMbithi/Hospital-Management-Information-System/blob/master/screenshots/1.png"></p>
-<p align="center"><img src="https://github.com/MartMbithi/Hospital-Management-Information-System/blob/master/screenshots/2.png"></p>
+  <p align="center"><img src="https://github.com/MartMbithi/HMIS/blob/master/screenshots/1.png"></p>
+  <p align="center"><img src="https://github.com/MartMbithi/HMIS/blob/master/screenshots/2.png"></p>
+
   
