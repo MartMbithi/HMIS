@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 13, 2020 at 03:39 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.1.26
+-- Generation Time: Aug 30, 2021 at 07:50 AM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 8.0.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -30,11 +29,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `his_accounts` (
   `acc_id` int(200) NOT NULL,
-  `acc_name` varchar(200) NOT NULL,
-  `acc_desc` text NOT NULL,
-  `acc_type` varchar(200) NOT NULL,
-  `acc_number` varchar(200) NOT NULL,
-  `acc_amount` varchar(200) NOT NULL
+  `acc_name` varchar(200) DEFAULT NULL,
+  `acc_desc` text DEFAULT NULL,
+  `acc_type` varchar(200) DEFAULT NULL,
+  `acc_number` varchar(200) DEFAULT NULL,
+  `acc_amount` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -53,11 +52,11 @@ INSERT INTO `his_accounts` (`acc_id`, `acc_name`, `acc_desc`, `acc_type`, `acc_n
 
 CREATE TABLE `his_admin` (
   `ad_id` int(20) NOT NULL,
-  `ad_fname` varchar(200) NOT NULL,
-  `ad_lname` varchar(200) NOT NULL,
-  `ad_email` varchar(200) NOT NULL,
-  `ad_pwd` varchar(200) NOT NULL,
-  `ad_dpic` varchar(200) NOT NULL
+  `ad_fname` varchar(200) DEFAULT NULL,
+  `ad_lname` varchar(200) DEFAULT NULL,
+  `ad_email` varchar(200) DEFAULT NULL,
+  `ad_pwd` varchar(200) DEFAULT NULL,
+  `ad_dpic` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -75,11 +74,11 @@ INSERT INTO `his_admin` (`ad_id`, `ad_fname`, `ad_lname`, `ad_email`, `ad_pwd`, 
 
 CREATE TABLE `his_assets` (
   `asst_id` int(20) NOT NULL,
-  `asst_name` varchar(200) NOT NULL,
-  `asst_desc` longtext NOT NULL,
-  `asst_vendor` varchar(200) NOT NULL,
-  `asst_status` varchar(200) NOT NULL,
-  `asst_dept` varchar(200) NOT NULL
+  `asst_name` varchar(200) DEFAULT NULL,
+  `asst_desc` longtext DEFAULT NULL,
+  `asst_vendor` varchar(200) DEFAULT NULL,
+  `asst_status` varchar(200) DEFAULT NULL,
+  `asst_dept` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -90,13 +89,13 @@ CREATE TABLE `his_assets` (
 
 CREATE TABLE `his_docs` (
   `doc_id` int(20) NOT NULL,
-  `doc_fname` varchar(200) NOT NULL,
-  `doc_lname` varchar(200) NOT NULL,
-  `doc_email` varchar(200) NOT NULL,
-  `doc_pwd` varchar(200) NOT NULL,
-  `doc_dept` varchar(200) NOT NULL,
-  `doc_number` varchar(200) NOT NULL,
-  `doc_dpic` varchar(200) NOT NULL
+  `doc_fname` varchar(200) DEFAULT NULL,
+  `doc_lname` varchar(200) DEFAULT NULL,
+  `doc_email` varchar(200) DEFAULT NULL,
+  `doc_pwd` varchar(200) DEFAULT NULL,
+  `doc_dept` varchar(200) DEFAULT NULL,
+  `doc_number` varchar(200) DEFAULT NULL,
+  `doc_dpic` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -104,7 +103,8 @@ CREATE TABLE `his_docs` (
 --
 
 INSERT INTO `his_docs` (`doc_id`, `doc_fname`, `doc_lname`, `doc_email`, `doc_pwd`, `doc_dept`, `doc_number`, `doc_dpic`) VALUES
-(2, 'Alex', 'Musyoki', 'docalex@hmis.org', 'a69681bcf334ae130217fea4505fd3c994f5683f', 'Surgery | Theatre', 'N8TI0', 'Orion-1.jpg');
+(3, 'purity', 'nduku', 'puritynduku@gmail.com', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', NULL, '65YSD', NULL),
+(4, 'mr wilson', 'musyoka', 'sysadmin@hmis.org', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', NULL, 'Y0F9K', NULL);
 
 -- --------------------------------------------------------
 
@@ -114,13 +114,13 @@ INSERT INTO `his_docs` (`doc_id`, `doc_fname`, `doc_lname`, `doc_email`, `doc_pw
 
 CREATE TABLE `his_equipments` (
   `eqp_id` int(20) NOT NULL,
-  `eqp_code` varchar(200) NOT NULL,
-  `eqp_name` varchar(200) NOT NULL,
-  `eqp_vendor` varchar(200) NOT NULL,
-  `eqp_desc` longtext NOT NULL,
-  `eqp_dept` varchar(200) NOT NULL,
-  `eqp_status` varchar(200) NOT NULL,
-  `eqp_qty` varchar(200) NOT NULL
+  `eqp_code` varchar(200) DEFAULT NULL,
+  `eqp_name` varchar(200) DEFAULT NULL,
+  `eqp_vendor` varchar(200) DEFAULT NULL,
+  `eqp_desc` longtext DEFAULT NULL,
+  `eqp_dept` varchar(200) DEFAULT NULL,
+  `eqp_status` varchar(200) DEFAULT NULL,
+  `eqp_qty` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -139,13 +139,13 @@ INSERT INTO `his_equipments` (`eqp_id`, `eqp_code`, `eqp_name`, `eqp_vendor`, `e
 
 CREATE TABLE `his_laboratory` (
   `lab_id` int(20) NOT NULL,
-  `lab_pat_name` varchar(200) NOT NULL,
-  `lab_pat_ailment` varchar(200) NOT NULL,
-  `lab_pat_number` varchar(200) NOT NULL,
-  `lab_pat_tests` longtext NOT NULL,
-  `lab_pat_results` longtext NOT NULL,
-  `lab_number` varchar(200) NOT NULL,
-  `lab_date_rec` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `lab_pat_name` varchar(200) DEFAULT NULL,
+  `lab_pat_ailment` varchar(200) DEFAULT NULL,
+  `lab_pat_number` varchar(200) DEFAULT NULL,
+  `lab_pat_tests` longtext DEFAULT NULL,
+  `lab_pat_results` longtext DEFAULT NULL,
+  `lab_number` varchar(200) DEFAULT NULL,
+  `lab_date_rec` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -165,14 +165,14 @@ INSERT INTO `his_laboratory` (`lab_id`, `lab_pat_name`, `lab_pat_ailment`, `lab_
 
 CREATE TABLE `his_medical_records` (
   `mdr_id` int(20) NOT NULL,
-  `mdr_number` varchar(200) NOT NULL,
-  `mdr_pat_name` varchar(200) NOT NULL,
-  `mdr_pat_adr` varchar(200) NOT NULL,
-  `mdr_pat_age` varchar(200) NOT NULL,
-  `mdr_pat_ailment` varchar(200) NOT NULL,
-  `mdr_pat_number` varchar(200) NOT NULL,
-  `mdr_pat_prescr` longtext NOT NULL,
-  `mdr_date_rec` timestamp(4) NOT NULL DEFAULT CURRENT_TIMESTAMP(4) ON UPDATE CURRENT_TIMESTAMP(4)
+  `mdr_number` varchar(200) DEFAULT NULL,
+  `mdr_pat_name` varchar(200) DEFAULT NULL,
+  `mdr_pat_adr` varchar(200) DEFAULT NULL,
+  `mdr_pat_age` varchar(200) DEFAULT NULL,
+  `mdr_pat_ailment` varchar(200) DEFAULT NULL,
+  `mdr_pat_number` varchar(200) DEFAULT NULL,
+  `mdr_pat_prescr` longtext DEFAULT NULL,
+  `mdr_date_rec` timestamp(4) NOT NULL DEFAULT current_timestamp(4) ON UPDATE current_timestamp(4)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -190,17 +190,17 @@ INSERT INTO `his_medical_records` (`mdr_id`, `mdr_number`, `mdr_pat_name`, `mdr_
 
 CREATE TABLE `his_patients` (
   `pat_id` int(20) NOT NULL,
-  `pat_fname` varchar(200) NOT NULL,
-  `pat_lname` varchar(200) NOT NULL,
-  `pat_dob` varchar(200) NOT NULL,
-  `pat_age` varchar(200) NOT NULL,
-  `pat_number` varchar(200) NOT NULL,
-  `pat_addr` varchar(200) NOT NULL,
-  `pat_phone` varchar(200) NOT NULL,
-  `pat_type` varchar(200) NOT NULL,
-  `pat_date_joined` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
-  `pat_ailment` varchar(200) NOT NULL,
-  `pat_discharge_status` varchar(200) NOT NULL
+  `pat_fname` varchar(200) DEFAULT NULL,
+  `pat_lname` varchar(200) DEFAULT NULL,
+  `pat_dob` varchar(200) DEFAULT NULL,
+  `pat_age` varchar(200) DEFAULT NULL,
+  `pat_number` varchar(200) DEFAULT NULL,
+  `pat_addr` varchar(200) DEFAULT NULL,
+  `pat_phone` varchar(200) DEFAULT NULL,
+  `pat_type` varchar(200) DEFAULT NULL,
+  `pat_date_joined` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6),
+  `pat_ailment` varchar(200) DEFAULT NULL,
+  `pat_discharge_status` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -208,9 +208,9 @@ CREATE TABLE `his_patients` (
 --
 
 INSERT INTO `his_patients` (`pat_id`, `pat_fname`, `pat_lname`, `pat_dob`, `pat_age`, `pat_number`, `pat_addr`, `pat_phone`, `pat_type`, `pat_date_joined`, `pat_ailment`, `pat_discharge_status`) VALUES
-(1, 'Mart', 'Developers', '13/07/1996', '23', '6P8HJ', '127001 LocalHost', '0704031263', 'InPatient', '2020-01-10 13:14:23.986720', 'Fever', 'Discharged'),
 (4, 'Lorem', 'Ipsum', '12/12/2010', '10', '7EW0L', '12 9001 Machakos', '0712345690', 'OutPatient', '2020-01-10 13:13:38.252985', 'Flu', ''),
-(5, 'John', 'Doe', '12/10/1990', '30', 'RAV6C', '12 900 NYE', '08907890', 'OutPatient', '2020-01-10 13:09:34.430204', 'Malaria', '');
+(5, 'John', 'Doe', '12/10/1990', '30', 'RAV6C', '12 900 NYE', '08907890', 'OutPatient', '2020-01-10 13:09:34.430204', 'Malaria', ''),
+(6, 'purity', 'nduku', '12062021', '25', '1DX5Z', 'machakos', '078643556', 'InPatient', '2021-08-28 11:01:37.381804', '1234', NULL);
 
 -- --------------------------------------------------------
 
@@ -220,11 +220,11 @@ INSERT INTO `his_patients` (`pat_id`, `pat_fname`, `pat_lname`, `pat_dob`, `pat_
 
 CREATE TABLE `his_patient_transfers` (
   `t_id` int(20) NOT NULL,
-  `t_hospital` varchar(200) NOT NULL,
-  `t_date` varchar(200) NOT NULL,
-  `t_pat_name` varchar(200) NOT NULL,
-  `t_pat_number` varchar(200) NOT NULL,
-  `t_status` varchar(200) NOT NULL
+  `t_hospital` varchar(200) DEFAULT NULL,
+  `t_date` varchar(200) DEFAULT NULL,
+  `t_pat_name` varchar(200) DEFAULT NULL,
+  `t_pat_number` varchar(200) DEFAULT NULL,
+  `t_status` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -242,14 +242,14 @@ INSERT INTO `his_patient_transfers` (`t_id`, `t_hospital`, `t_date`, `t_pat_name
 
 CREATE TABLE `his_payrolls` (
   `pay_id` int(20) NOT NULL,
-  `pay_number` varchar(200) NOT NULL,
-  `pay_doc_name` varchar(200) NOT NULL,
-  `pay_doc_number` varchar(200) NOT NULL,
-  `pay_doc_email` varchar(200) NOT NULL,
-  `pay_emp_salary` varchar(200) NOT NULL,
-  `pay_date_generated` timestamp(4) NOT NULL DEFAULT CURRENT_TIMESTAMP(4) ON UPDATE CURRENT_TIMESTAMP(4),
-  `pay_status` varchar(200) NOT NULL,
-  `pay_descr` longtext NOT NULL
+  `pay_number` varchar(200) DEFAULT NULL,
+  `pay_doc_name` varchar(200) DEFAULT NULL,
+  `pay_doc_number` varchar(200) DEFAULT NULL,
+  `pay_doc_email` varchar(200) DEFAULT NULL,
+  `pay_emp_salary` varchar(200) DEFAULT NULL,
+  `pay_date_generated` timestamp(4) NOT NULL DEFAULT current_timestamp(4) ON UPDATE current_timestamp(4),
+  `pay_status` varchar(200) DEFAULT NULL,
+  `pay_descr` longtext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -267,12 +267,12 @@ INSERT INTO `his_payrolls` (`pay_id`, `pay_number`, `pay_doc_name`, `pay_doc_num
 
 CREATE TABLE `his_pharmaceuticals` (
   `phar_id` int(20) NOT NULL,
-  `phar_name` varchar(200) NOT NULL,
-  `phar_bcode` varchar(200) NOT NULL,
-  `phar_desc` longtext NOT NULL,
-  `phar_qty` varchar(200) NOT NULL,
-  `phar_cat` varchar(200) NOT NULL,
-  `phar_vendor` varchar(200) NOT NULL
+  `phar_name` varchar(200) DEFAULT NULL,
+  `phar_bcode` varchar(200) DEFAULT NULL,
+  `phar_desc` longtext DEFAULT NULL,
+  `phar_qty` varchar(200) DEFAULT NULL,
+  `phar_cat` varchar(200) DEFAULT NULL,
+  `phar_vendor` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -291,9 +291,9 @@ INSERT INTO `his_pharmaceuticals` (`phar_id`, `phar_name`, `phar_bcode`, `phar_d
 
 CREATE TABLE `his_pharmaceuticals_categories` (
   `pharm_cat_id` int(20) NOT NULL,
-  `pharm_cat_name` varchar(200) NOT NULL,
-  `pharm_cat_vendor` varchar(200) NOT NULL,
-  `pharm_cat_desc` longtext NOT NULL
+  `pharm_cat_name` varchar(200) DEFAULT NULL,
+  `pharm_cat_vendor` varchar(200) DEFAULT NULL,
+  `pharm_cat_desc` longtext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -313,15 +313,15 @@ INSERT INTO `his_pharmaceuticals_categories` (`pharm_cat_id`, `pharm_cat_name`, 
 
 CREATE TABLE `his_prescriptions` (
   `pres_id` int(200) NOT NULL,
-  `pres_pat_name` varchar(200) NOT NULL,
-  `pres_pat_age` varchar(200) NOT NULL,
-  `pres_pat_number` varchar(200) NOT NULL,
-  `pres_number` varchar(200) NOT NULL,
-  `pres_pat_addr` varchar(200) NOT NULL,
-  `pres_pat_type` varchar(200) NOT NULL,
-  `pres_date` timestamp(4) NOT NULL DEFAULT CURRENT_TIMESTAMP(4) ON UPDATE CURRENT_TIMESTAMP(4),
-  `pres_pat_ailment` varchar(200) NOT NULL,
-  `pres_ins` longtext NOT NULL
+  `pres_pat_name` varchar(200) DEFAULT NULL,
+  `pres_pat_age` varchar(200) DEFAULT NULL,
+  `pres_pat_number` varchar(200) DEFAULT NULL,
+  `pres_number` varchar(200) DEFAULT NULL,
+  `pres_pat_addr` varchar(200) DEFAULT NULL,
+  `pres_pat_type` varchar(200) DEFAULT NULL,
+  `pres_date` timestamp(4) NOT NULL DEFAULT current_timestamp(4) ON UPDATE current_timestamp(4),
+  `pres_pat_ailment` varchar(200) DEFAULT NULL,
+  `pres_ins` longtext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -352,13 +352,13 @@ CREATE TABLE `his_pwdresets` (
 
 CREATE TABLE `his_surgery` (
   `s_id` int(200) NOT NULL,
-  `s_number` varchar(200) NOT NULL,
-  `s_doc` varchar(200) NOT NULL,
-  `s_pat_number` varchar(200) NOT NULL,
-  `s_pat_name` varchar(200) NOT NULL,
-  `s_pat_ailment` varchar(200) NOT NULL,
-  `s_pat_date` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
-  `s_pat_status` varchar(200) NOT NULL
+  `s_number` varchar(200) DEFAULT NULL,
+  `s_doc` varchar(200) DEFAULT NULL,
+  `s_pat_number` varchar(200) DEFAULT NULL,
+  `s_pat_name` varchar(200) DEFAULT NULL,
+  `s_pat_ailment` varchar(200) DEFAULT NULL,
+  `s_pat_date` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6),
+  `s_pat_status` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -376,13 +376,13 @@ INSERT INTO `his_surgery` (`s_id`, `s_number`, `s_doc`, `s_pat_number`, `s_pat_n
 
 CREATE TABLE `his_vendor` (
   `v_id` int(20) NOT NULL,
-  `v_number` varchar(200) NOT NULL,
-  `v_name` varchar(200) NOT NULL,
-  `v_adr` varchar(200) NOT NULL,
-  `v_mobile` varchar(200) NOT NULL,
-  `v_email` varchar(200) NOT NULL,
-  `v_phone` varchar(200) NOT NULL,
-  `v_desc` longtext NOT NULL
+  `v_number` varchar(200) DEFAULT NULL,
+  `v_name` varchar(200) DEFAULT NULL,
+  `v_adr` varchar(200) DEFAULT NULL,
+  `v_mobile` varchar(200) DEFAULT NULL,
+  `v_email` varchar(200) DEFAULT NULL,
+  `v_phone` varchar(200) DEFAULT NULL,
+  `v_desc` longtext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -400,13 +400,13 @@ INSERT INTO `his_vendor` (`v_id`, `v_number`, `v_name`, `v_adr`, `v_mobile`, `v_
 
 CREATE TABLE `his_vitals` (
   `vit_id` int(20) NOT NULL,
-  `vit_number` varchar(200) NOT NULL,
-  `vit_pat_number` varchar(200) NOT NULL,
-  `vit_bodytemp` varchar(200) NOT NULL,
-  `vit_heartpulse` varchar(200) NOT NULL,
-  `vit_resprate` varchar(200) NOT NULL,
-  `vit_bloodpress` varchar(200) NOT NULL,
-  `vit_daterec` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6)
+  `vit_number` varchar(200) DEFAULT NULL,
+  `vit_pat_number` varchar(200) DEFAULT NULL,
+  `vit_bodytemp` varchar(200) DEFAULT NULL,
+  `vit_heartpulse` varchar(200) DEFAULT NULL,
+  `vit_resprate` varchar(200) DEFAULT NULL,
+  `vit_bloodpress` varchar(200) DEFAULT NULL,
+  `vit_daterec` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -549,7 +549,7 @@ ALTER TABLE `his_assets`
 -- AUTO_INCREMENT for table `his_docs`
 --
 ALTER TABLE `his_docs`
-  MODIFY `doc_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `doc_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `his_equipments`
@@ -573,7 +573,7 @@ ALTER TABLE `his_medical_records`
 -- AUTO_INCREMENT for table `his_patients`
 --
 ALTER TABLE `his_patients`
-  MODIFY `pat_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `pat_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `his_patient_transfers`
