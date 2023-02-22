@@ -19,7 +19,7 @@ Hospital Management Information System Is More Advanced Hospital Information Sys
 <hr>
 Login Credentials<br>
 Admin Module Email: sysadmin@his.org<br>
-Admin Module Password: admin <br>
+Admin Module Password: demo <br>
 <hr>
   <b>Screenshots</b>
   <p align="center"><img src="https://github.com/MartMbithi/HMIS/blob/master/screenshots/1.png"></p>
